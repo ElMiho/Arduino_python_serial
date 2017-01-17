@@ -1,7 +1,7 @@
 import serial
-#port = raw_input("Please enter port: ")
+port = raw_input("Please enter port: ")
 ser = serial.Serial()
-ser.port = "/dev/cu.usbmodem1421"
+ser.port = port
 ser.open()
 
 from flask import Flask, request, render_template
@@ -32,7 +32,7 @@ def test():
 @app.route("/action", methods = ['POST'])
 def action():
     value = request.form.get('value')
-    print "I got it" + str(value)
+    print "I got it " + str(value)
     if value == "turn_on":
         state = "onX"
         ser.write(state)
