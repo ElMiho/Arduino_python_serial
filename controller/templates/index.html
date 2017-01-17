@@ -1,0 +1,44 @@
+<html>
+<head>
+<script src="/static/jquery-3.1.1.min.js"></script>
+
+<script>
+$(function(){
+  console.log('ready')
+  $('#off_button').on({
+      'click': function(){
+        $("#lightbulb").attr('src', 'static/lightbulb_empty.png')
+        console.log('Changing off')
+        //return false
+        $.get( "/turn_off", function( data ) {
+				      $("#lucky_number").text(data)
+				          console.log("GET from server succesful.")
+			  });
+      }
+    });
+    $('#on_button').on({
+      'click': function(){
+        $("#lightbulb").attr('src', 'static/lightbulb_full.png')
+        console.log('Changing on')
+        //return false
+        $.get( "/turn_on", function( data ) {
+				      $("#lucky_number").text(data)
+				          console.log("GET from server succesful.")
+			  });
+      }
+
+    });
+  });
+</script>
+
+</head>
+  <body>
+
+    <h1>Control the LED</h1>
+      <img id="lightbulb" src = "/static/lightbulb_empty.png" />
+      <button id="on_button" type="submit" value="turn_on" name="value">Turn LED on</button>
+      <button id="off_button" type="submit" value="turn_off" name="value">Turn LED off</buttons>
+
+  </body>
+
+</html>
