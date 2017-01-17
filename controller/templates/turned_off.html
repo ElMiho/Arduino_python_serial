@@ -1,1 +1,29 @@
-<img src = "/static/lightbulb_empty.png" />
+<html>
+<script src="/static/jquery-3.1.1.min.js"></script>
+<img id="off" src = "/static/lightbulb_empty.png" />
+
+<script>
+('#off_button').on({
+    'click': function(){
+      $("#off").attr('src', 'static/lightbulb_empty.png')
+    }
+});
+('#on_button').on({
+    'click': function(){
+      $("#on").attr('src', 'static/lightbulb_empty.png')
+    }
+});
+</script>
+
+
+  <body>
+
+    <h1>Control the LED</h1>
+    <form action="/action" method="POST">
+      <button id="on_button" type="submit" value="turn_on" name="value">Turn LED on</button>
+      <button id="off_button" type="submit" value="turn_off" name="value">Turn LED off</buttons>
+    </form>
+
+  </body>
+
+</html>
