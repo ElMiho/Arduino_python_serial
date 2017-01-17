@@ -43,7 +43,7 @@ def action():
         return render_template('turned_off.html')
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0")
 
 
 def echo(input):
