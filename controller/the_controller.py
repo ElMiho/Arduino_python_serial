@@ -17,13 +17,13 @@ def hello():
 def on():
     state = "onX"
     ser.write(state)
-    return "LED is on"
+    return render_template('turned_on.html')
 
 @app.route("/turn_off")
 def off():
     state = "offX"
     ser.write(state)
-    return "LED is off"
+    return render_template('turned_off.html')
 
 @app.route("/test")
 def test():
@@ -31,21 +31,19 @@ def test():
 
 @app.route("/action", methods = ['POST'])
 def action():
-    text = request.form.get('text')
-    if text == "turn_on":
+    value = request.form.get('value')
+    print "I got it" + str(value)
+    if value == "turn_on":
         state = "onX"
         ser.write(state)
         return render_template('turned_on.html')
-    elif text == "turn_off":
+    elif value == "turn_off":
         state = "offX"
         ser.write(state)
         return render_template('turned_off.html')
-    else:
-        return str(text).upper()
-
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", debug=True)
 
 
 def echo(input):
