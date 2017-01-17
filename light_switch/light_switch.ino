@@ -21,7 +21,6 @@ void process(String cmd) {
   else if (cmd == "off"){
     Serial.print("command offxxx");
     buf = "";
-
     digitalWrite(LED_BUILTIN, LOW);
    }
 }
