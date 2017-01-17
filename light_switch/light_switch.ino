@@ -16,13 +16,11 @@ void process(String cmd) {
   if (cmd == "on"){
     Serial.print("command onxxx");
     buf = "";
-
     digitalWrite(LED_BUILTIN, HIGH);
   }
   else if (cmd == "off"){
     Serial.print("command offxxx");
     buf = "";
-
     digitalWrite(LED_BUILTIN, LOW);
    }
 }
